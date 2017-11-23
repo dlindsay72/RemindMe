@@ -16,7 +16,8 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        UNService.shared.authorize()
     }
     
     @IBAction func timeBtnWasPressed(_ sender: Any) {
