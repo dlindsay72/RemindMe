@@ -22,6 +22,7 @@ class MainVC: UIViewController {
     
     @IBAction func timeBtnWasPressed(_ sender: Any) {
         print("timer")
+        UNService.shared.requestTimerNotification(with: 5)
     }
     
     @IBAction func dateBtnWasPressed(_ sender: Any) {
