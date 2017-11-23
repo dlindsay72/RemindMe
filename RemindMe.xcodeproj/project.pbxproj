@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B1DE2DB1FC7847200289546 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1DE2DA1FC7847200289546 /* AlertService.swift */; };
+		7B1DE2DE1FC786A900289546 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1DE2DD1FC786A900289546 /* Identifiers.swift */; };
 		7B22EAA91FC73518006E852F /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22EAA81FC73518006E852F /* ShadowView.swift */; };
 		7B5EE0AE1FC72C9A006C3C00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5EE0AD1FC72C9A006C3C00 /* AppDelegate.swift */; };
 		7B5EE0B01FC72C9A006C3C00 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5EE0AF1FC72C9A006C3C00 /* MainVC.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B1DE2DA1FC7847200289546 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
+		7B1DE2DD1FC786A900289546 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		7B22EAA81FC73518006E852F /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		7B5EE0AA1FC72C9A006C3C00 /* RemindMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemindMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5EE0AD1FC72C9A006C3C00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B1DE2DC1FC7868800289546 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7B1DE2DD1FC786A900289546 /* Identifiers.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		7B22EAA41FC73457006E852F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				7BA0A4D71FC74762000CDF69 /* UNService.swift */,
+				7B1DE2DA1FC7847200289546 /* AlertService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -100,6 +113,7 @@
 		7B5EE0AC1FC72C9A006C3C00 /* RemindMe */ = {
 			isa = PBXGroup;
 			children = (
+				7B1DE2DC1FC7868800289546 /* Helper */,
 				7B22EAA71FC7346C006E852F /* Services */,
 				7B22EAA61FC73466006E852F /* Model */,
 				7B22EAA51FC73462006E852F /* View */,
@@ -198,6 +212,8 @@
 				7B5EE0B01FC72C9A006C3C00 /* MainVC.swift in Sources */,
 				7BA0A4D81FC74762000CDF69 /* UNService.swift in Sources */,
 				7B5EE0AE1FC72C9A006C3C00 /* AppDelegate.swift in Sources */,
+				7B1DE2DE1FC786A900289546 /* Identifiers.swift in Sources */,
+				7B1DE2DB1FC7847200289546 /* AlertService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

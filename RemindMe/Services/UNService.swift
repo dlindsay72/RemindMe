@@ -41,12 +41,22 @@ class UNService: NSObject {
         content.badge = 1
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
-        let request = UNNotificationRequest(identifier: "userNotification.timer", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: UserNotif.timer.rawValue, content: content, trigger: trigger)
         
         unCenter.add(request, withCompletionHandler: nil)
     }
     
-    func requestDateNotification(with component: DateComponents) {
+    func requestDateNotification(with components: DateComponents) {
+        let content = UNMutableNotificationContent()
+        content.title = "Date Trigger"
+        content.body = "It is now the future."
+        content.sound = .default()
+        content.badge = 1
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        let request = UNNotificationRequest(identifier: UserNotif.date.rawValue, content: content, trigger: trigger)
+        
+        unCenter.add(request, withCompletionHandler: nil)
         
     }
     
