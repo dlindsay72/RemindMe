@@ -33,10 +33,32 @@ class UNService: NSObject {
         unCenter.delegate = self
     }
     
+    func getAttachement(for id: NotificationAttachmentID) -> UNNotificationAttachment? {
+        var imageName: String
+        switch id {
+        case .timer:
+            imageName = "TimeAlert"
+        case .date:
+            imageName = "DateAlert"
+        case .location:
+            imageName = "LocationAlert"
+        }
+        
+        guard let url = Bundle.main.url(forResource: imageName, withExtension: "png") else { return nil }
+        
+        do {
+           let attachment = try UNNotificationAttachment(identifier: id.rawValue, url: url)
+            return attachment
+        } catch {
+            return nil
+        }
+        
+    }
+    
     func requestTimerNotification(with interval: TimeInterval) {
         var content = UNMutableNotificationContent()
         
-        setupContentWith(title: "Timer finished", body: "Your timer is done. Time to kick some ass!", sound: .default(), badge: 1, content: &content)
+        setupContentWith(title: "Timer finished", body: "Your timer is done. Time to kick some ass!", sound: .default(), badge: 1, content: &content, attachmentID: .timer)
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: UserNotif.timer.rawValue, content: content, trigger: trigger)
@@ -47,7 +69,9 @@ class UNService: NSObject {
     func requestDateNotification(with components: DateComponents) {
         var content = UNMutableNotificationContent()
         
-        setupContentWith(title: "Date Trigger", body: "It is now the future", sound: .default(), badge: 1, content: &content)
+        setupContentWith(title: "Date Trigger", body: "It is now the future", sound: .default(), badge: 1, content: &content, attachmentID: .date)
+        
+        
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: UserNotif.date.rawValue, content: content, trigger: trigger)
@@ -59,17 +83,21 @@ class UNService: NSObject {
     func requestLocationNotification() {
         var content = UNMutableNotificationContent()
         
-        setupContentWith(title: "You have returned!", body: "Welcome back to where you started your journey", sound: .default(), badge: 1, content: &content)
+        setupContentWith(title: "You have returned!", body: "Welcome back to where you started your journey", sound: .default(), badge: 1, content: &content, attachmentID: .location)
         let request = UNNotificationRequest(identifier: "userNotification.location", content: content, trigger: nil)
         unCenter.add(request)
     }
     
-    func setupContentWith(title: String, body: String, sound: UNNotificationSound, badge: NSNumber, content: inout UNMutableNotificationContent) {
+    func setupContentWith(title: String, body: String, sound: UNNotificationSound, badge: NSNumber, content: inout UNMutableNotificationContent, attachmentID: NotificationAttachmentID) {
         content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.sound = sound
         content.badge = badge
+        
+        if let attachment = getAttachement(for: attachmentID) {
+            content.attachments = [attachment]
+        }
     }
     
 }
