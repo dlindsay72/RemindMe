@@ -34,11 +34,9 @@ class UNService: NSObject {
     }
     
     func requestTimerNotification(with interval: TimeInterval) {
-        let content = UNMutableNotificationContent()
-        content.title = "Timer finished"
-        content.body = "Your timer is has finished. Time to kick some ass!"
-        content.sound = .default()
-        content.badge = 1
+        var content = UNMutableNotificationContent()
+        
+        setupContentWith(title: "Timer finished", body: "Your timer is done. Time to kick some ass!", sound: .default(), badge: 1, content: &content)
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: UserNotif.timer.rawValue, content: content, trigger: trigger)
@@ -47,11 +45,9 @@ class UNService: NSObject {
     }
     
     func requestDateNotification(with components: DateComponents) {
-        let content = UNMutableNotificationContent()
-        content.title = "Date Trigger"
-        content.body = "It is now the future."
-        content.sound = .default()
-        content.badge = 1
+        var content = UNMutableNotificationContent()
+        
+        setupContentWith(title: "Date Trigger", body: "It is now the future", sound: .default(), badge: 1, content: &content)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: UserNotif.date.rawValue, content: content, trigger: trigger)
@@ -60,8 +56,16 @@ class UNService: NSObject {
         
     }
     
-    func requestLocationNoticifation() {
+    func requestLocationNotification() {
         
+    }
+    
+    func setupContentWith(title: String, body: String, sound: UNNotificationSound, badge: NSNumber, content: inout UNMutableNotificationContent) {
+        content = UNMutableNotificationContent()
+        content.title = title
+        content.body = body
+        content.sound = sound
+        content.badge = badge
     }
     
 }
