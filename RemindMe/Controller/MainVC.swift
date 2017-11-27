@@ -18,6 +18,13 @@ class MainVC: UIViewController {
         super.viewDidLoad()
         
         UNService.shared.authorize()
+        CoreLocationService.shared.authorize()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterRegion), name: NSNotification.Name("internalNotification.enteredRegion"), object: nil)
+    }
+    
+    @objc func didEnterRegion() {
+        UNService.shared.requestLocationNotification()
     }
     
     @IBAction func timeBtnWasPressed(_ sender: Any) {
@@ -41,9 +48,11 @@ class MainVC: UIViewController {
     @IBAction func locationBtnWasPressed(_ sender: Any) {
         print("Location")
         AlertService.presentActionSheet(on: self, title: "When I return") {
-            print("Location completion")
+            CoreLocationService.shared.updateLocation()
         }
     }
+    
+    
     
 }
 
