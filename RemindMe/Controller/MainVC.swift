@@ -21,10 +21,30 @@ class MainVC: UIViewController {
         CoreLocationService.shared.authorize()
         
         NotificationCenter.default.addObserver(self, selector: #selector(didEnterRegion), name: NSNotification.Name("internalNotification.enteredRegion"), object: nil)
+        // internalNotification.handleAction
+        NotificationCenter.default.addObserver(self, selector: #selector(handleAction(_:)), name: NSNotification.Name("internalNotification.handleAction"), object: nil)
     }
     
     @objc func didEnterRegion() {
         UNService.shared.requestLocationNotification()
+    }
+    
+    @objc func handleAction(_ sender: Notification) {
+        guard let action = sender.object as? NotificationActionID else { return }
+        
+        switch action {
+        case .timer:
+            print("Timer logic was run")
+        case .date:
+            print("Date logic was run")
+        case .location:
+            print("Location logic was run")
+            changeBackgroundColor()
+        }
+    }
+    
+    func changeBackgroundColor() {
+        view.backgroundColor = #colorLiteral(red: 0.6619830666, green: 0.499614244, blue: 1, alpha: 1)
     }
     
     @IBAction func timeBtnWasPressed(_ sender: Any) {
