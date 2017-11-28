@@ -13,7 +13,7 @@ class AlertService {
     private init() {}
     
     static func presentActionSheet(on vc: UIViewController, title: String, completion: @escaping () -> Void) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert) // changed from actionSheet to alert so I can test on my iPad
         let action = UIAlertAction(title: title, style: .default) { (_) in
             completion()
         }

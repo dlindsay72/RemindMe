@@ -52,7 +52,11 @@ class MainVC: UIViewController {
         }
     }
     
-    
-    
+}
+
+extension MainVC: UIPopoverPresentationControllerDelegate {
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        
+    }
 }
 

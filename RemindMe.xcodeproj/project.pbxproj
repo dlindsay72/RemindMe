@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7B1DE2DB1FC7847200289546 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1DE2DA1FC7847200289546 /* AlertService.swift */; };
-		7B1DE2DE1FC786A900289546 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1DE2DD1FC786A900289546 /* Identifiers.swift */; };
+		7B1DE2DE1FC786A900289546 /* UserNotif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1DE2DD1FC786A900289546 /* UserNotif.swift */; };
 		7B22EAA91FC73518006E852F /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B22EAA81FC73518006E852F /* ShadowView.swift */; };
 		7B4EFF9B1FCCADC200B1E4D1 /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4EFF9A1FCCADC200B1E4D1 /* CoreLocationService.swift */; };
 		7B4EFF9D1FCCB53200B1E4D1 /* NotificationAttachmentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4EFF9C1FCCB53200B1E4D1 /* NotificationAttachmentID.swift */; };
@@ -17,6 +17,8 @@
 		7B5EE0B31FC72C9A006C3C00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5EE0B11FC72C9A006C3C00 /* Main.storyboard */; };
 		7B5EE0B51FC72C9A006C3C00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5EE0B41FC72C9A006C3C00 /* Assets.xcassets */; };
 		7B5EE0B81FC72C9A006C3C00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5EE0B61FC72C9A006C3C00 /* LaunchScreen.storyboard */; };
+		7B8939FD1FCCEE8F009E9252 /* NotificationActionID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8939FC1FCCEE8F009E9252 /* NotificationActionID.swift */; };
+		7B8939FF1FCCEFF8009E9252 /* NotificationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8939FE1FCCEFF8009E9252 /* NotificationCategory.swift */; };
 		7BA0A4D21FC73891000CDF69 /* LocationAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0A4D11FC73891000CDF69 /* LocationAlert.png */; };
 		7BA0A4D41FC73898000CDF69 /* TimeAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0A4D31FC73898000CDF69 /* TimeAlert.png */; };
 		7BA0A4D61FC738A3000CDF69 /* DateAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0A4D51FC738A3000CDF69 /* DateAlert.png */; };
@@ -25,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		7B1DE2DA1FC7847200289546 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
-		7B1DE2DD1FC786A900289546 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		7B1DE2DD1FC786A900289546 /* UserNotif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotif.swift; sourceTree = "<group>"; };
 		7B22EAA81FC73518006E852F /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		7B4EFF9A1FCCADC200B1E4D1 /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
 		7B4EFF9C1FCCB53200B1E4D1 /* NotificationAttachmentID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAttachmentID.swift; sourceTree = "<group>"; };
@@ -36,6 +38,8 @@
 		7B5EE0B41FC72C9A006C3C00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B5EE0B71FC72C9A006C3C00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B5EE0B91FC72C9A006C3C00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B8939FC1FCCEE8F009E9252 /* NotificationActionID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationActionID.swift; sourceTree = "<group>"; };
+		7B8939FE1FCCEFF8009E9252 /* NotificationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategory.swift; sourceTree = "<group>"; };
 		7BA0A4D11FC73891000CDF69 /* LocationAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationAlert.png; sourceTree = "<group>"; };
 		7BA0A4D31FC73898000CDF69 /* TimeAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TimeAlert.png; sourceTree = "<group>"; };
 		7BA0A4D51FC738A3000CDF69 /* DateAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DateAlert.png; sourceTree = "<group>"; };
@@ -53,14 +57,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B1DE2DC1FC7868800289546 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				7B1DE2DD1FC786A900289546 /* Identifiers.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		7B22EAA41FC73457006E852F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +81,10 @@
 		7B22EAA61FC73466006E852F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B1DE2DD1FC786A900289546 /* UserNotif.swift */,
 				7B4EFF9C1FCCB53200B1E4D1 /* NotificationAttachmentID.swift */,
+				7B8939FC1FCCEE8F009E9252 /* NotificationActionID.swift */,
+				7B8939FE1FCCEFF8009E9252 /* NotificationCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,7 +118,6 @@
 		7B5EE0AC1FC72C9A006C3C00 /* RemindMe */ = {
 			isa = PBXGroup;
 			children = (
-				7B1DE2DC1FC7868800289546 /* Helper */,
 				7B22EAA71FC7346C006E852F /* Services */,
 				7B22EAA61FC73466006E852F /* Model */,
 				7B22EAA51FC73462006E852F /* View */,
@@ -214,14 +212,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8939FF1FCCEFF8009E9252 /* NotificationCategory.swift in Sources */,
 				7B22EAA91FC73518006E852F /* ShadowView.swift in Sources */,
 				7B5EE0B01FC72C9A006C3C00 /* MainVC.swift in Sources */,
 				7BA0A4D81FC74762000CDF69 /* UNService.swift in Sources */,
 				7B4EFF9B1FCCADC200B1E4D1 /* CoreLocationService.swift in Sources */,
 				7B5EE0AE1FC72C9A006C3C00 /* AppDelegate.swift in Sources */,
-				7B1DE2DE1FC786A900289546 /* Identifiers.swift in Sources */,
+				7B1DE2DE1FC786A900289546 /* UserNotif.swift in Sources */,
 				7B4EFF9D1FCCB53200B1E4D1 /* NotificationAttachmentID.swift in Sources */,
 				7B1DE2DB1FC7847200289546 /* AlertService.swift in Sources */,
+				7B8939FD1FCCEE8F009E9252 /* NotificationActionID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 999T2QHS45;
 				INFOPLIST_FILE = RemindMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamerongo.RemindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,6 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 999T2QHS45;
 				INFOPLIST_FILE = RemindMe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dreamerongo.RemindMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -31,6 +31,19 @@ class UNService: NSObject {
     
     func configure() {
         unCenter.delegate = self
+        setupActionsAndCategories()
+    }
+    
+    func setupActionsAndCategories() {
+        let timerAction = UNNotificationAction(identifier: NotificationActionID.timer.rawValue, title: "Run timer logic", options: [.authenticationRequired])
+        let dateAction = UNNotificationAction(identifier: NotificationActionID.date.rawValue, title: "Run some date logic", options: [.destructive])
+        let locationAction = UNNotificationAction(identifier: NotificationActionID.location.rawValue, title: "Run some location logic", options: [.foreground])
+        
+        let timerCategory = UNNotificationCategory(identifier: NotificationCategory.timer.rawValue, actions: [timerAction], intentIdentifiers: [])
+        let dateCategory = UNNotificationCategory(identifier: NotificationCategory.date.rawValue, actions: [dateAction], intentIdentifiers: [])
+        let locationCategory = UNNotificationCategory(identifier: NotificationCategory.location.rawValue, actions: [locationAction], intentIdentifiers: [])
+        
+        unCenter.setNotificationCategories([timerCategory, dateCategory, locationCategory])
     }
     
     func getAttachement(for id: NotificationAttachmentID) -> UNNotificationAttachment? {
@@ -58,7 +71,7 @@ class UNService: NSObject {
     func requestTimerNotification(with interval: TimeInterval) {
         var content = UNMutableNotificationContent()
         
-        setupContentWith(title: "Timer finished", body: "Your timer is done. Time to kick some ass!", sound: .default(), badge: 1, content: &content, attachmentID: .timer)
+        setupContentWith(title: "Timer finished", body: "Your timer is done. Time to kick some ass!", sound: .default(), badge: 1, content: &content, attachmentID: .timer, categoryIdentifier: .timer)
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: interval, repeats: false)
         let request = UNNotificationRequest(identifier: UserNotif.timer.rawValue, content: content, trigger: trigger)
@@ -69,9 +82,7 @@ class UNService: NSObject {
     func requestDateNotification(with components: DateComponents) {
         var content = UNMutableNotificationContent()
         
-        setupContentWith(title: "Date Trigger", body: "It is now the future", sound: .default(), badge: 1, content: &content, attachmentID: .date)
-        
-        
+        setupContentWith(title: "Date Trigger", body: "It is now the future", sound: .default(), badge: 1, content: &content, attachmentID: .date, categoryIdentifier: .date)
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let request = UNNotificationRequest(identifier: UserNotif.date.rawValue, content: content, trigger: trigger)
@@ -83,17 +94,18 @@ class UNService: NSObject {
     func requestLocationNotification() {
         var content = UNMutableNotificationContent()
         
-        setupContentWith(title: "You have returned!", body: "Welcome back to where you started your journey", sound: .default(), badge: 1, content: &content, attachmentID: .location)
+        setupContentWith(title: "You have returned!", body: "Welcome back to where you started your journey", sound: .default(), badge: 1, content: &content, attachmentID: .location, categoryIdentifier: .location)
         let request = UNNotificationRequest(identifier: "userNotification.location", content: content, trigger: nil)
         unCenter.add(request)
     }
     
-    func setupContentWith(title: String, body: String, sound: UNNotificationSound, badge: NSNumber, content: inout UNMutableNotificationContent, attachmentID: NotificationAttachmentID) {
+    func setupContentWith(title: String, body: String, sound: UNNotificationSound, badge: NSNumber, content: inout UNMutableNotificationContent, attachmentID: NotificationAttachmentID, categoryIdentifier: NotificationCategory) {
         content = UNMutableNotificationContent()
         content.title = title
         content.body = body
         content.sound = sound
         content.badge = badge
+        content.categoryIdentifier = categoryIdentifier.rawValue
         
         if let attachment = getAttachement(for: attachmentID) {
             content.attachments = [attachment]
